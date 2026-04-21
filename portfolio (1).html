@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Амир Мауая — Веб-дизайнер и Frontend-разработчик</title>
+<meta name="description" content="Портфолио Амира Мауая — веб-дизайнера и frontend-разработчика из Казахстана. Современные сайты, лендинги, UI/UX, адаптивная верстка и аккуратная подача для клиентов.">
+<meta name="theme-color" content="#0a0f1e">
+<meta name="keywords" content="Амир Мауая, веб-дизайнер, frontend разработчик, портфолио, лендинг, UI UX, Казахстан, создание сайтов">
+<meta property="og:title" content="Амир Мауая — Веб-дизайнер и Frontend-разработчик">
+<meta property="og:description" content="Современные сайты, UI/UX, адаптивная верстка и аккуратная подача для бизнеса и личного бренда.">
+<meta property="og:type" content="website">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --blue:#0ea5e9;
+  --blue2:#0284c7;
+  --blue3:#38bdf8;
+  --dark:#0a0f1e;
+  --dark2:#111827;
+  --dark3:#0f172a;
+  --card:#161f2e;
+  --card2:#1a2537;
+  --border:#22324a;
+  --text:#f1f5f9;
+  --muted:#94a3b8;
+  --muted2:#64748b;
+  --soft:#0ea5e915;
+  --white:#fff;
+  --success:#22c55e;
+  --danger:#fb7185;
+  --shadow:0 20px 60px #00000045;
+  --radius:18px;
+  --container:1120px;
+}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Segoe UI',system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+  background:
+    radial-gradient(circle at top right,#0ea5e908 0%,transparent 35%),
+    radial-gradient(circle at left 20%,#0284c708 0%,transparent 30%),
+    var(--dark);
+  color:var(--text);
+  overflow-x:hidden;
+  line-height:1.5;
+}
+body.menu-open{overflow:hidden;}
+img{max-width:100%;display:block;}
+button,input,textarea,select{font:inherit;}
+a{color:inherit;}
+:focus-visible{
+  outline:2px solid var(--blue3);
+  outline-offset:3px;
+  border-radius:10px;
+}
+::selection{background:#0ea5e940;color:#fff;}
+.container{max-width:var(--container);margin:0 auto;width:100%;}
+.skip-link{
+  position:fixed;
+  left:1rem;
+  top:-3rem;
+  z-index:10001;
+  background:var(--blue);
+  color:var(--dark);
+  padding:0.8rem 1rem;
+  border-radius:10px;
+  font-weight:800;
+  text-decoration:none;
+  transition:top .2s;
+}
+.skip-link:focus{top:1rem;}
+
+/* PRELOADER */
+#preloader{
+  position:fixed;inset:0;background:var(--dark);z-index:9999;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  transition:opacity .6s,visibility .6s;
+}
+#preloader.hide{opacity:0;visibility:hidden;}
+.pre-logo{font-size:2.5rem;font-weight:900;color:var(--white);letter-spacing:-0.05em;margin-bottom:1.5rem;}
+.pre-logo span{color:var(--blue);}
+.pre-bar-bg{width:min(220px,75vw);height:3px;background:var(--border);border-radius:999px;overflow:hidden;}
+.pre-bar{height:100%;background:linear-gradient(90deg,var(--blue),var(--blue3));border-radius:999px;width:0;transition:width .8s ease;}
+
+/* GLOBAL FX */
+#progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--blue3));z-index:9998;width:0;transition:width .1s;}
+#cur{
+  position:fixed;width:8px;height:8px;background:var(--blue);border-radius:50%;
+  pointer-events:none;z-index:9997;transform:translate(-50%,-50%);transition:transform .08s;
+}
+#cur-ring{
+  position:fixed;width:32px;height:32px;border:1px solid #0ea5e960;border-radius:50%;
+  pointer-events:none;z-index:9996;transform:translate(-50%,-50%);
+  transition:left .12s ease,top .12s ease,transform .2s ease;
+}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;width:100%;z-index:500;
+  transition:background .35s,border-color .35s,padding .35s,box-shadow .35s;
+}
+.nav-shell{
+  padding:1.15rem 3rem;
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;
+}
+nav.scrolled{
+  background:rgba(10,15,30,.82);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid #ffffff0c;
+  box-shadow:0 12px 40px #00000020;
+}
+nav.scrolled .nav-shell{padding:.9rem 3rem;}
+.logo{font-size:1.1rem;font-weight:900;color:var(--white);letter-spacing:-0.04em;text-decoration:none;}
+.logo span{color:var(--blue);}
+.nav-links{list-style:none;display:flex;gap:2.2rem;align-items:center;}
+.nav-links a{
+  color:var(--muted);
+  text-decoration:none;
+  font-size:.86rem;
+  font-weight:600;
+  letter-spacing:.02em;
+  transition:color .2s;
+  position:relative;
+}
+.nav-links a::after{
+  content:'';
+  position:absolute;
+  bottom:-6px;left:0;
+  width:0;height:2px;
+  background:linear-gradient(90deg,var(--blue),var(--blue3));
+  transition:width .25s;
+  border-radius:999px;
+}
+.nav-links a:hover,
+.nav-links a.active{color:var(--white);}
+.nav-links a:hover::after,
+.nav-links a.active::after{width:100%;}
+.nav-right{display:flex;align-items:center;gap:1rem;}
+.avail{
+  display:flex;align-items:center;gap:.5rem;font-size:.74rem;color:#86efac;font-weight:700;
+  background:#052e16;padding:.38rem .95rem;border-radius:999px;border:1px solid #166534;
+  white-space:nowrap;
+}
+.avail-dot{width:7px;height:7px;border-radius:50%;background:var(--success);animation:pulse 2s infinite;}
+.nav-btn,.btn-p,.f-submit,.demo-btn{
+  background:linear-gradient(135deg,var(--blue),var(--blue3));
+  color:var(--dark);
+  border:none;
+  text-decoration:none;
+  font-weight:800;
+  cursor:pointer;
+  transition:transform .2s,box-shadow .2s,filter .2s,background .2s;
+}
+.nav-btn{
+  padding:.62rem 1.25rem;border-radius:10px;font-size:.83rem;box-shadow:0 10px 30px #0ea5e920;
+}
+.nav-btn:hover,.btn-p:hover,.f-submit:hover,.demo-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 14px 38px #0ea5e930;
+  filter:brightness(1.05);
+}
+.nav-toggle{
+  display:none;
+  width:42px;height:42px;
+  border-radius:12px;border:1px solid var(--border);
+  background:#101a2c;color:var(--white);
+  align-items:center;justify-content:center;
+  cursor:pointer;
+}
+.nav-toggle span,.nav-toggle::before,.nav-toggle::after{
+  content:'';
+  display:block;
+  width:18px;height:2px;background:currentColor;border-radius:999px;
+  transition:transform .25s,opacity .25s;
+}
+.nav-toggle{position:relative;}
+.nav-toggle::before,.nav-toggle::after{position:absolute;}
+.nav-toggle::before{transform:translateY(-6px);}
+.nav-toggle::after{transform:translateY(6px);}
+.nav-toggle.open span{opacity:0;}
+.nav-toggle.open::before{transform:rotate(45deg);}
+.nav-toggle.open::after{transform:rotate(-45deg);}
+.mobile-panel{
+  display:none;
+  position:fixed;top:72px;left:1rem;right:1rem;z-index:490;
+  background:rgba(17,24,39,.98);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:1rem;
+  box-shadow:var(--shadow);
+}
+.mobile-panel.open{display:block;}
+.mobile-panel a{
+  display:block;
+  padding:.95rem 1rem;
+  text-decoration:none;
+  color:var(--text);
+  border-radius:12px;
+  font-weight:700;
+}
+.mobile-panel a:hover{background:#ffffff08;}
+
+/* HERO */
+#hero{
+  min-height:100vh;display:flex;align-items:center;padding:0 3rem;position:relative;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 68% 36%,#0ea5e914 0%,transparent 70%),
+    linear-gradient(180deg,transparent 0%,#0a0f1e 90%);
+}
+.hero-grid{
+  display:grid;grid-template-columns:1.05fr .95fr;gap:4.5rem;align-items:center;
+  max-width:var(--container);margin:0 auto;width:100%;position:relative;padding-top:5rem;
+}
+.hero-left,.hero-right{position:relative;z-index:1;}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:.5rem;background:var(--soft);color:var(--blue3);
+  font-size:.72rem;font-weight:800;padding:.42rem 1rem;border-radius:999px;border:1px solid #0ea5e930;
+  margin-bottom:1.4rem;letter-spacing:.08em;text-transform:uppercase;
+}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
+.hero-title{
+  font-size:clamp(2.8rem,5vw,4.6rem);font-weight:900;line-height:1.02;letter-spacing:-.05em;margin-bottom:1.2rem;
+}
+.hero-title .blue{
+  color:transparent;
+  background:linear-gradient(135deg,var(--blue3),var(--blue));
+  -webkit-background-clip:text;
+  background-clip:text;
+}
+.hero-title .typed-wrap{display:inline-block;min-width:260px;}
+#typed{border-right:2px solid var(--blue);padding-right:4px;animation:blink .8s infinite;}
+@keyframes blink{0%,100%{border-color:var(--blue)}50%{border-color:transparent}}
+.hero-desc{
+  font-size:1rem;color:var(--muted);line-height:1.85;max-width:560px;margin-bottom:2rem;
+}
+.hero-points{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem 1rem;margin-bottom:2rem;
+}
+.hp{
+  display:flex;align-items:center;gap:.65rem;
+  color:var(--text);font-size:.92rem;
+}
+.hp i{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:28px;height:28px;border-radius:9px;background:var(--soft);color:var(--blue3);
+  border:1px solid #0ea5e920;font-style:normal;font-size:.9rem;flex-shrink:0;
+}
+.hero-actions{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;margin-bottom:2.2rem;}
+.btn-p{padding:.95rem 1.8rem;border-radius:12px;font-size:.92rem;display:inline-flex;align-items:center;gap:.5rem;}
+.btn-g{
+  color:var(--text);font-weight:700;text-decoration:none;font-size:.9rem;display:inline-flex;align-items:center;gap:.5rem;
+  border:1px solid var(--border);padding:.95rem 1.35rem;border-radius:12px;transition:all .25s;
+  background:#ffffff04;
+}
+.btn-g:hover{color:var(--white);border-color:#34506f;background:#ffffff08;transform:translateY(-1px);}
+.hero-meta{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;
+}
+.hm{
+  background:linear-gradient(180deg,#ffffff05,#ffffff02);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:1rem 1.1rem;
+}
+.hm .num{font-size:1.7rem;font-weight:900;color:var(--white);letter-spacing:-0.03em;}
+.hm .lbl{font-size:.74rem;color:var(--muted);margin-top:.15rem;text-transform:uppercase;letter-spacing:.08em;}
+.hero-right{position:relative;}
+.code-card{
+  background:linear-gradient(180deg,#182235,#141d2d);
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:1.5rem;
+  font-family:'Courier New',monospace;
+  font-size:.82rem;
+  line-height:1.9;
+  box-shadow:var(--shadow);
+  position:relative;
+  overflow:hidden;
+}
+.code-card::before{
+  content:'';
+  position:absolute;
+  inset:auto -20% -45% auto;
+  width:240px;height:240px;
+  background:radial-gradient(circle,#0ea5e91b,transparent 70%);
+  pointer-events:none;
+}
+.cc-header{display:flex;gap:.42rem;margin-bottom:1.2rem;}
+.cc-dot{width:10px;height:10px;border-radius:50%;}
+.cc-line{color:var(--muted);}
+.cc-key{color:#f472b6;}
+.cc-val{color:#34d399;}
+.cc-str{color:#fbbf24;}
+.cc-num{color:#60a5fa;}
+.cc-com{color:#475569;font-style:italic;}
+.floating-badge{
+  position:absolute;background:rgba(22,31,46,.9);border:1px solid #2b415f;border-radius:14px;padding:.8rem 1rem;
+  display:flex;align-items:center;gap:.7rem;box-shadow:0 18px 40px #00000045;animation:float 4s ease-in-out infinite;
+  backdrop-filter:blur(12px);
+}
+.fb1{bottom:-18px;left:-18px;animation-delay:0s;}
+.fb2{top:-18px;right:-18px;animation-delay:2s;}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.fb-icon{font-size:1.25rem;}
+.fb-text .ft{font-size:.66rem;color:var(--muted);}
+.fb-text .fb{font-size:.84rem;font-weight:800;color:var(--white);}
+.hero-note{
+  margin-top:1rem;color:var(--muted2);font-size:.82rem;
+}
+
+/* TRUST BAR */
+.marquee-wrap{
+  overflow:hidden;padding:1rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  background:linear-gradient(180deg,#0f172a,#111827);
+}
+.marquee{display:flex;gap:3rem;animation:marquee 20s linear infinite;width:max-content;}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.mi{
+  font-size:.8rem;color:var(--muted);font-weight:700;white-space:nowrap;
+  display:flex;align-items:center;gap:.55rem;letter-spacing:.02em;
+}
+.md{width:5px;height:5px;border-radius:50%;background:var(--blue);}
+
+/* SECTION */
+.sec{padding:7rem 3rem;max-width:var(--container);margin:0 auto;}
+.sec-label{
+  font-size:.72rem;font-weight:800;color:var(--blue3);text-transform:uppercase;letter-spacing:.14em;margin-bottom:.75rem;
+}
+.sec-title{
+  font-size:clamp(2rem,3vw,2.6rem);font-weight:900;letter-spacing:-.04em;margin-bottom:.6rem;color:var(--white);line-height:1.08;
+}
+.sec-title span{color:var(--blue);}
+.sec-sub{
+  color:var(--muted);max-width:620px;line-height:1.8;margin-bottom:3.5rem;font-size:.96rem;
+}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:.95fr 1.15fr;gap:4rem;align-items:start;}
+.about-img-wrap{position:relative;}
+.about-img{
+  width:100%;aspect-ratio:3/4;border-radius:24px;
+  background:
+    radial-gradient(circle at top right,#0ea5e91b 0%,transparent 30%),
+    linear-gradient(180deg,#1a2537,#121a29);
+  border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;font-size:7rem;
+  position:relative;overflow:hidden;
+  box-shadow:var(--shadow);
+}
+.about-img::before{
+  content:'';
+  position:absolute;inset:0;
+  background:
+    linear-gradient(160deg,#ffffff08 0%,transparent 35%),
+    linear-gradient(to bottom,transparent 55%,rgba(10,15,30,.86));
+  pointer-events:none;
+}
+.ab-badge{
+  position:absolute;bottom:-16px;right:-16px;background:rgba(22,31,46,.95);
+  border:1px solid var(--border);border-radius:16px;padding:.95rem 1.15rem;display:flex;align-items:center;gap:.75rem;
+  box-shadow:0 14px 34px #00000035;
+}
+.ab-icon{font-size:1.4rem;}
+.ab-t{font-size:.68rem;color:var(--muted);}
+.ab-b{font-size:.88rem;font-weight:800;color:var(--white);}
+.about-r p{color:var(--muted);line-height:1.9;margin-bottom:1rem;font-size:.97rem;}
+.fact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem;}
+.fact{
+  background:linear-gradient(180deg,#182235,#141d2d);
+  border:1px solid var(--border);border-radius:16px;padding:1.15rem;
+}
+.fact .fn{font-size:1.6rem;font-weight:900;color:var(--blue);margin-bottom:.2rem;}
+.fact .fl{font-size:.76rem;color:var(--muted);}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:2rem;margin-top:1.2rem;}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(180deg,var(--blue),var(--border));}
+.tl-item{position:relative;padding:0 0 2.3rem 2rem;}
+.tl-item:last-child{padding-bottom:0;}
+.tl-dot{
+  position:absolute;left:-2rem;top:.25rem;width:12px;height:12px;border-radius:50%;
+  background:var(--blue);border:2px solid var(--dark);transform:translateX(calc(2rem - 6px));
+  box-shadow:0 0 0 6px #0ea5e910;
+}
+.tl-date{font-size:.72rem;color:var(--blue3);font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.3rem;}
+.tl-title{font-size:1rem;font-weight:800;color:var(--white);margin-bottom:.25rem;}
+.tl-place{font-size:.82rem;color:var(--muted);margin-bottom:.45rem;}
+.tl-desc{font-size:.86rem;color:var(--muted);line-height:1.75;}
+
+/* SERVICES */
+.band{
+  background:linear-gradient(180deg,#0f172a,#111827);
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:5rem 3rem;
+}
+.srv-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;}
+.srv{
+  background:linear-gradient(180deg,#182235,#141d2d);
+  border:1px solid var(--border);border-radius:18px;padding:1.8rem;transition:all .3s;position:relative;overflow:hidden;
+}
+.srv::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--blue),var(--blue3));
+  transform:scaleX(0);transition:transform .3s;transform-origin:left;
+}
+.srv:hover::before{transform:scaleX(1);}
+.srv:hover{border-color:#0ea5e940;transform:translateY(-4px);}
+.srv-icon{font-size:1.9rem;margin-bottom:1rem;}
+.srv-title{font-size:1rem;font-weight:800;color:var(--white);margin-bottom:.5rem;}
+.srv-desc{font-size:.85rem;color:var(--muted);line-height:1.75;}
+.srv-tag{
+  display:inline-block;margin-top:1rem;font-size:.69rem;background:var(--soft);color:var(--blue3);
+  padding:.25rem .72rem;border-radius:999px;border:1px solid #0ea5e930;font-weight:700;
+}
+
+/* SKILLS */
+.skills-outer{display:grid;grid-template-columns:1fr .95fr;gap:3rem;align-items:start;}
+.skill-card,.tool-card{
+  background:linear-gradient(180deg,#182235,#141d2d);
+  border:1px solid var(--border);border-radius:20px;padding:1.5rem;
+}
+.skill-item{margin-bottom:1.2rem;}
+.skill-item:last-child{margin-bottom:0;}
+.sk-head{display:flex;justify-content:space-between;gap:1rem;margin-bottom:.55rem;}
+.sk-name{font-size:.9rem;font-weight:700;color:var(--text);}
+.sk-pct{font-size:.82rem;color:var(--blue3);font-weight:800;}
+.bar-bg{background:#0f172a;border-radius:999px;height:8px;border:1px solid #1d2940;overflow:hidden;}
+.bar-fill{
+  height:100%;border-radius:999px;background:linear-gradient(90deg,#38bdf8,var(--blue));
+  transition:width 1.2s ease;position:relative;
+}
+.bar-fill::after{
+  content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,#ffffff20,transparent);
+  animation:shine 2.4s linear infinite;
+}
+@keyframes shine{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+.skill-note{
+  margin-top:1rem;
+  font-size:.82rem;
+  color:var(--muted);
+  line-height:1.7;
+}
+.tools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.85rem;}
+.tool{
+  background:#10192a;border:1px solid var(--border);border-radius:14px;padding:1rem;text-align:center;transition:all .2s;
+}
+.tool:hover{border-color:var(--blue);transform:translateY(-2px);}
+.tool .ti{font-size:1.65rem;margin-bottom:.35rem;}
+.tool .tn{font-size:.74rem;color:var(--muted);font-weight:700;}
+
+/* PROJECTS */
+.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;}
+.proj-card{
+  background:linear-gradient(180deg,#182235,#141d2d);border:1px solid var(--border);border-radius:22px;overflow:hidden;
+  cursor:pointer;transition:all .35s;display:block;text-align:left;width:100%;
+}
+.proj-card:hover{transform:translateY(-6px);border-color:#0ea5e940;box-shadow:0 20px 60px #00000050;}
+.proj-card:focus-visible{outline:2px solid var(--blue3);outline-offset:4px;}
+.proj-card.featured{grid-column:1/-1;}
+.proj-thumb{
+  height:220px;display:flex;align-items:center;justify-content:center;font-size:3.5rem;position:relative;overflow:hidden;
+}
+.proj-card.featured .proj-thumb{height:280px;}
+.pt1{background:linear-gradient(135deg,#0c1a2e,#0f2d4a);}
+.pt2{background:linear-gradient(135deg,#0a1628,#1a2c4e);}
+.pt3{background:linear-gradient(135deg,#0f1e30,#0d2540);}
+.proj-overlay{
+  position:absolute;inset:0;background:linear-gradient(to top,var(--card) 0%,transparent 55%);opacity:0;transition:opacity .3s;
+}
+.proj-card:hover .proj-overlay,.proj-card:focus-visible .proj-overlay{opacity:1;}
+.proj-open{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s;color:var(--white);
+  font-size:.88rem;font-weight:700;gap:.45rem;background:#0ea5e915;backdrop-filter:blur(4px);
+}
+.proj-card:hover .proj-open,.proj-card:focus-visible .proj-open{opacity:1;}
+.proj-body{padding:1.5rem;}
+.proj-type{font-size:.68rem;color:var(--blue3);font-weight:800;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.4rem;}
+.proj-body h3{font-size:1.02rem;font-weight:800;color:var(--white);margin-bottom:.45rem;}
+.proj-body p{color:var(--muted);font-size:.84rem;line-height:1.72;margin-bottom:1rem;}
+.tag-row{display:flex;gap:.45rem;flex-wrap:wrap;}
+.tag{
+  font-size:.68rem;background:#0ea5e910;color:var(--blue3);padding:.22rem .62rem;border-radius:999px;border:1px solid #0ea5e925;font-weight:700;
+}
+
+/* TESTIMONIALS */
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
+.tcard{
+  background:linear-gradient(180deg,#182235,#141d2d);border:1px solid var(--border);border-radius:18px;padding:1.5rem;transition:all .25s;
+}
+.tcard:hover{border-color:#0ea5e930;transform:translateY(-3px);}
+.tquote{font-size:.88rem;color:var(--muted);line-height:1.85;margin:.8rem 0 1.2rem;font-style:italic;}
+.tstar{color:#f59e0b;font-size:.72rem;letter-spacing:2px;}
+.tauth{display:flex;align-items:center;gap:.8rem;}
+.tav{
+  width:40px;height:40px;border-radius:50%;background:var(--soft);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.1rem;
+}
+.tname{font-size:.84rem;font-weight:800;color:var(--white);}
+.trole{font-size:.73rem;color:var(--muted);}
+
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:.65rem;}
+.faq-item{background:linear-gradient(180deg,#182235,#141d2d);border:1px solid var(--border);border-radius:16px;overflow:hidden;}
+.faq-q{
+  width:100%;display:flex;justify-content:space-between;align-items:center;padding:1.15rem 1.3rem;cursor:pointer;
+  transition:background .2s;border:none;background:transparent;text-align:left;
+}
+.faq-q:hover{background:#0ea5e905;}
+.faq-q-text{font-size:.92rem;font-weight:700;color:var(--white);}
+.faq-icon{color:var(--blue3);font-size:1.2rem;transition:transform .3s;line-height:1;}
+  .faq-item.open .faq-icon{transform:rotate(45deg);}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease;}
+  .faq-a-inner{padding:0 1.3rem 1.25rem;font-size:.86rem;color:var(--muted);line-height:1.8;}
+
+  /* HIGHLIGHTS */
+  .hi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
+  .hi-card{
+    background:linear-gradient(180deg,#182235,#141d2d);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:1.4rem;
+    transition:all .25s;
+  }
+  .hi-card:hover{transform:translateY(-4px);border-color:#0ea5e940;}
+  .hi-icon{
+    width:46px;height:46px;border-radius:14px;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--soft);border:1px solid #0ea5e920;
+    color:var(--blue3);font-size:1.2rem;margin-bottom:1rem;
+  }
+  .hi-card h3{font-size:1rem;font-weight:800;color:var(--white);margin-bottom:.45rem;}
+  .hi-card p{font-size:.86rem;color:var(--muted);line-height:1.75;}
+
+  /* PROCESS */
+  .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
+  .process-card{
+    background:linear-gradient(180deg,#182235,#141d2d);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:1.35rem;
+    position:relative;
+    overflow:hidden;
+  }
+  .process-card::before{
+    content:'';
+    position:absolute;left:0;top:0;right:0;height:2px;
+    background:linear-gradient(90deg,var(--blue),var(--blue3));
+    opacity:.8;
+  }
+  .process-step{
+    font-size:.72rem;
+    color:var(--blue3);
+    font-weight:800;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    margin-bottom:.65rem;
+  }
+  .process-card h3{font-size:.96rem;font-weight:800;color:var(--white);margin-bottom:.45rem;}
+  .process-card p{font-size:.84rem;color:var(--muted);line-height:1.72;}
+
+  /* MOBILE CTA */
+  .mobile-cta{
+    display:none;
+    position:fixed;
+    left:1rem;right:1rem;bottom:1rem;
+    z-index:450;
+    background:rgba(17,24,39,.94);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:.7rem;
+    backdrop-filter:blur(14px);
+    box-shadow:0 18px 40px #00000030;
+  }
+  .mobile-cta a{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    min-height:48px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:800;
+  }
+
+  /* CTA */
+.cta-wrap{
+  margin:0 3rem 7rem;background:linear-gradient(180deg,#182235,#141d2d);border:1px solid var(--border);
+  border-radius:28px;padding:4.5rem 3rem;text-align:center;position:relative;overflow:hidden;
+}
+.cta-wrap::before{
+  content:'';position:absolute;width:460px;height:460px;border-radius:50%;
+  background:radial-gradient(circle,#0ea5e914,transparent);top:-150px;left:50%;transform:translateX(-50%);
+}
+.cta-wrap h2{font-size:clamp(2rem,3vw,2.7rem);font-weight:900;color:var(--white);letter-spacing:-.04em;margin-bottom:.85rem;position:relative;line-height:1.1;}
+.cta-wrap p{color:var(--muted);margin-bottom:2rem;font-size:.97rem;position:relative;max-width:640px;margin-inline:auto;}
+.cta-btns{display:flex;gap:1rem;justify-content:center;position:relative;flex-wrap:wrap;}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:2rem;align-items:start;}
+.contact-l,.form-wrap{
+  background:linear-gradient(180deg,#182235,#141d2d);
+  border:1px solid var(--border);border-radius:22px;padding:1.6rem;
+}
+.contact-l h3{font-size:1.45rem;font-weight:900;color:var(--white);margin-bottom:.7rem;}
+.contact-l p{color:var(--muted);line-height:1.8;margin-bottom:1.5rem;font-size:.92rem;}
+.clinks{display:flex;flex-direction:column;gap:.8rem;}
+.clink{
+  display:flex;align-items:center;gap:1rem;padding:1rem 1.1rem;background:#10192a;border:1px solid var(--border);
+  border-radius:14px;text-decoration:none;transition:all .25s;
+}
+.clink:hover{border-color:#0ea5e940;transform:translateX(4px);}
+.cl-ic{
+  width:42px;height:42px;border-radius:12px;background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;border:1px solid #0ea5e920;
+}
+.cl-t{font-size:.72rem;color:var(--muted);}
+.cl-b{font-size:.88rem;font-weight:700;color:var(--white);word-break:break-word;}
+.form-top{
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:1.2rem;
+}
+.form-top h3{font-size:1.2rem;font-weight:900;color:var(--white);}
+.form-top p{font-size:.82rem;color:var(--muted);}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.fg{display:flex;flex-direction:column;gap:.45rem;margin-bottom:1rem;}
+.fg label{font-size:.75rem;font-weight:700;color:var(--muted);letter-spacing:.05em;text-transform:uppercase;}
+.fg input,.fg textarea,.fg select{
+  background:var(--dark3);border:1px solid var(--border);border-radius:12px;padding:.82rem 1rem;font-size:.9rem;color:var(--white);
+  outline:none;transition:border-color .2s,box-shadow .2s;
+}
+.fg input:focus,.fg textarea:focus,.fg select:focus{
+  border-color:var(--blue);box-shadow:0 0 0 4px #0ea5e915;
+}
+.fg textarea{resize:vertical;min-height:120px;}
+.fg select option{background:var(--dark2);}
+.f-submit{width:100%;padding:.95rem;border-radius:12px;font-size:.92rem;}
+.form-status{
+  margin-top:.9rem;
+  font-size:.84rem;
+  color:var(--muted);
+  min-height:1.2rem;
+}
+.form-status.ok{color:#86efac;}
+.form-status.err{color:#fda4af;}
+
+/* BACK TO TOP */
+#btt{
+  position:fixed;bottom:1.5rem;right:1.5rem;width:48px;height:48px;background:linear-gradient(135deg,var(--blue),var(--blue3));
+  border:none;border-radius:14px;color:var(--dark);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.15rem;z-index:400;
+  opacity:0;transform:translateY(10px);transition:all .3s;box-shadow:0 12px 32px #0ea5e920;
+}
+#btt.show{opacity:1;transform:translateY(0);}
+#btt:hover{filter:brightness(1.05);}
+
+/* FOOTER */
+footer{
+  border-top:1px solid var(--border);padding:2.3rem 3rem;display:flex;justify-content:space-between;align-items:center;gap:1.2rem;max-width:var(--container);margin:0 auto;
+}
+.footer-logo{font-size:1rem;font-weight:900;color:var(--white);}
+.footer-logo span{color:var(--blue);}
+.footer-copy{font-size:.8rem;color:var(--muted);}
+.footer-links{display:flex;gap:1.2rem;flex-wrap:wrap;}
+.footer-links a{font-size:.8rem;color:var(--muted);text-decoration:none;transition:color .2s;}
+.footer-links a:hover{color:var(--white);}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* MODAL */
+.modal-bg{
+  display:none;position:fixed;inset:0;background:#020617cc;z-index:900;align-items:center;justify-content:center;padding:1.5rem;
+  backdrop-filter:blur(10px);
+}
+.modal-bg.open{display:flex;}
+.modal{
+  background:var(--dark2);border-radius:22px;width:100%;max-width:900px;max-height:90vh;overflow-y:auto;border:1px solid var(--border);box-shadow:var(--shadow);
+}
+.modal-header{
+  display:flex;justify-content:space-between;align-items:center;padding:1.15rem 1.4rem;border-bottom:1px solid var(--border);
+  position:sticky;top:0;background:rgba(17,24,39,.94);backdrop-filter:blur(12px);z-index:1;
+}
+.modal-header h2{font-size:.98rem;font-weight:800;color:var(--white);}
+.close-btn{
+  background:var(--card);border:1px solid var(--border);border-radius:10px;width:36px;height:36px;cursor:pointer;font-size:1rem;color:var(--muted);
+  display:flex;align-items:center;justify-content:center;transition:all .2s;
+}
+.close-btn:hover{color:var(--white);border-color:#34506f;}
+
+/* PROJECT PAGES */
+.pp{font-family:'Segoe UI',sans-serif;background:var(--dark2);color:var(--text);}
+.pp-nav{
+  padding:1rem 1.5rem;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;
+}
+.pp-logo{font-weight:900;color:var(--blue);font-size:1rem;}
+.pp-hero{background:linear-gradient(135deg,#0c1825,#0f2540);padding:3rem 2rem;text-align:center;border-bottom:1px solid var(--border);}
+.pp-hero h2{font-size:2rem;font-weight:900;color:var(--white);margin-bottom:.4rem;}
+.pp-hero p{color:#dbeafe;font-size:.92rem;}
+.pp-content{padding:1.5rem;}
+
+.shop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.si{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:all .2s;}
+.si:hover{border-color:var(--blue);transform:translateY(-3px);}
+.si-th{height:96px;display:flex;align-items:center;justify-content:center;font-size:2.5rem;background:#0a1628;}
+.si-bd{padding:.85rem;}
+.si-n{font-size:.84rem;font-weight:700;color:var(--white);margin-bottom:.2rem;}
+.si-p{font-size:.95rem;font-weight:900;color:var(--blue);margin-bottom:.5rem;}
+.si-b{
+  width:100%;background:linear-gradient(135deg,var(--blue),var(--blue3));color:var(--dark);border:none;border-radius:8px;padding:.55rem;
+  font-size:.8rem;font-weight:800;cursor:pointer;
+}
+
+.w-top{background:linear-gradient(160deg,var(--blue2),#38bdf8);color:#fff;padding:2.5rem 2rem;text-align:center;}
+.w-city{font-size:1.35rem;font-weight:800;}
+.w-temp{font-size:5rem;font-weight:900;line-height:1;}
+.w-desc{font-size:.92rem;opacity:.9;}
+.w-icon{font-size:3rem;margin-bottom:.3rem;}
+.w-det{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;padding:1.5rem;}
+.wd{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1rem;text-align:center;}
+.wdl{font-size:.7rem;color:var(--muted);margin-bottom:.3rem;}
+.wdv{font-size:1.12rem;font-weight:900;color:var(--blue);}
+.wfc{padding:0 1.5rem 1.5rem;}
+.wfc h4{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.8rem;}
+.frow-w{display:flex;gap:.7rem;}
+.fd{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.7rem;text-align:center;flex:1;}
+.fdd{font-size:.7rem;color:var(--muted);}
+.fde{font-size:1.3rem;margin:.2rem 0;}
+.fdt{font-size:.86rem;font-weight:800;color:var(--blue);}
+
+.blog-hdr{background:linear-gradient(135deg,#0c1825,#0f2540);padding:2rem;text-align:center;border-bottom:1px solid var(--border);}
+.blog-hdr h2{font-size:1.4rem;font-weight:900;color:var(--white);}
+.blog-hdr p{color:var(--muted);font-size:.84rem;margin-top:.3rem;}
+.blog-feat{margin:1.5rem;background:linear-gradient(135deg,var(--blue2),#38bdf8);border-radius:16px;padding:2rem;color:#fff;}
+.bft{background:#ffffff25;font-size:.7rem;padding:.25rem .7rem;border-radius:999px;margin-bottom:.8rem;display:inline-block;font-weight:700;}
+.bfh{font-size:1.12rem;font-weight:900;margin-bottom:.4rem;}
+.bfd{font-size:.84rem;opacity:.9;line-height:1.6;}
+.blog-list-pp{padding:0 1.5rem 1.5rem;display:flex;flex-direction:column;gap:.7rem;}
+.bp{display:flex;gap:1rem;padding:1rem;background:var(--card);border:1px solid var(--border);border-radius:12px;transition:all .2s;align-items:center;}
+.bp:hover{border-color:var(--blue);}
+.bpe{font-size:1.7rem;width:46px;height:46px;background:var(--dark);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.bptag{font-size:.67rem;color:var(--blue);font-weight:800;text-transform:uppercase;letter-spacing:.05em;}
+.bptitle{font-size:.88rem;font-weight:800;color:var(--white);margin:.1rem 0;}
+.bpdate{font-size:.72rem;color:var(--muted);}
+
+/* UTIL */
+.sr-only{
+  position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
+}
+  @media (max-width:1100px){
+    .hero-grid,.about-grid,.skills-outer,.contact-grid,.hi-grid{grid-template-columns:1fr;}
+    .hero-right{max-width:700px;margin:0 auto;}
+    .test-grid,.process-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:860px){
+    nav .nav-links,nav .avail,nav .nav-btn{display:none;}
+    .nav-toggle{display:flex;}
+    #hero,.sec,.band,.cta-wrap,footer{padding-left:1.25rem;padding-right:1.25rem;}
+    .nav-shell,nav.scrolled .nav-shell{padding:.95rem 1.25rem;}
+    .hero-grid{gap:2.5rem;padding-top:4.5rem;}
+    .hero-meta,.fact-grid,.srv-grid,.proj-grid,.test-grid,.shop-grid,.frow,.w-det,.process-grid{grid-template-columns:1fr;}
+    .tools-grid{grid-template-columns:repeat(2,1fr);}
+    .proj-card.featured{grid-column:auto;}
+    .cta-wrap{margin:0 1.25rem 5rem;padding:3rem 1.25rem;}
+    footer{flex-direction:column;align-items:flex-start;padding-bottom:6rem;}
+    .floating-badge{position:static;margin-top:1rem;display:inline-flex;}
+    .fb2{margin-left:.75rem;}
+    .contact-grid{gap:1rem;}
+    .mobile-cta{display:block;}
+  }
+  @media (max-width:640px){
+    body{font-size:15px;}
+    .hero-title .typed-wrap{min-width:0;}
+    .hero-points{grid-template-columns:1fr;}
+    .hero-meta{grid-template-columns:1fr;}
+    .tools-grid{grid-template-columns:1fr 1fr;}
+    .cta-btns,.hero-actions{flex-direction:column;align-items:stretch;}
+    .btn-p,.btn-g,.nav-btn{justify-content:center;}
+    .pp-hero h2{font-size:1.55rem;}
+    .w-temp{font-size:4rem;}
+    .frow-w{flex-direction:column;}
+    .modal-bg{padding:.75rem;}
+    .modal-header{padding:1rem;}
+    .hero-desc,.sec-sub,.contact-l p,.about-r p{font-size:.92rem;line-height:1.75;}
+    .hm{padding:.9rem 1rem;}
+    .mobile-panel{top:68px;left:.75rem;right:.75rem;}
+    .mobile-cta{left:.75rem;right:.75rem;bottom:.75rem;}
+  }
+@media (pointer:coarse),(max-width:860px){
+  #cur,#cur-ring{display:none;}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+  }
+  #cur,#cur-ring,.marquee{display:none;}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Перейти к контенту</a>
+
+<div id="preloader" aria-hidden="true">
+  <div class="pre-logo">amir<span>.</span></div>
+  <div class="pre-bar-bg"><div class="pre-bar" id="pbar"></div></div>
+</div>
+
+<div id="progress" aria-hidden="true"></div>
+<div id="cur" aria-hidden="true"></div>
+<div id="cur-ring" aria-hidden="true"></div>
+
+<nav id="nav" aria-label="Основная навигация">
+  <div class="nav-shell container">
+    <a class="logo" href="#hero" aria-label="На главную">amir<span>.</span></a>
+
+    <ul class="nav-links">
+      <li><a href="#about">Обо мне</a></li>
+      <li><a href="#services">Услуги</a></li>
+      <li><a href="#skills">Навыки</a></li>
+      <li><a href="#highlights">Плюсы</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="avail"><div class="avail-dot"></div>Открыт к работе</div>
+      <a href="#contact" class="nav-btn">Связаться</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobileMenu"><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-panel" id="mobileMenu">
+  <a href="#about">Обо мне</a>
+  <a href="#services">Услуги</a>
+  <a href="#skills">Навыки</a>
+  <a href="#highlights">Плюсы</a>
+  <a href="#faq">FAQ</a>
+  <a href="#contact">Связаться</a>
+</div>
+
+<main id="main">
+  <section id="hero" aria-labelledby="hero-title">
+    <div class="hero-bg"></div>
+    <div class="hero-grid">
+      <div class="hero-left reveal">
+        <div class="hero-eyebrow"><div class="avail-dot"></div>Веб-дизайнер · Казахстан</div>
+        <h1 class="hero-title" id="hero-title">
+          Привет, я <span class="blue">Амир</span><br>
+          <span class="typed-wrap"><span id="typed"></span></span>
+        </h1>
+        <p class="hero-desc">
+          Создаю современные сайты с чистым кодом, понятной структурой и вниманием к деталям.
+          Мне важно, чтобы сайт не только выглядел красиво, но и помогал бизнесу вызывать доверие и получать заявки.
+        </p>
+
+        <div class="hero-points">
+          <div class="hp"><i>✦</i><span>Лендинги и портфолио под ключ</span></div>
+          <div class="hp"><i>✦</i><span>Аккуратная адаптивная верстка</span></div>
+          <div class="hp"><i>✦</i><span>Современный визуальный стиль</span></div>
+          <div class="hp"><i>✦</i><span>Быстрая коммуникация и правки</span></div>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#projects" class="btn-p">Смотреть работы <span>↗</span></a>
+          <a href="#contact" class="btn-g">Обсудить проект →</a>
+        </div>
+
+        <div class="hero-meta">
+          <div class="hm"><div class="num" data-count="3">0</div><div class="lbl">Проекта</div></div>
+          <div class="hm"><div class="num" data-count="24">0</div><div class="lbl">Часа на ответ</div></div>
+          <div class="hm"><div class="num" data-count="100">0</div><div class="lbl">% Вовлеченности</div></div>
+        </div>
+
+        <div class="hero-note">Сейчас особенно интересны проекты для малого бизнеса, личных брендов и стартапов.</div>
+      </div>
+
+      <div class="hero-right reveal">
+        <div style="position:relative;">
+          <div class="code-card">
+            <div class="cc-header">
+              <div class="cc-dot" style="background:#ef4444"></div>
+              <div class="cc-dot" style="background:#f59e0b"></div>
+              <div class="cc-dot" style="background:#22c55e"></div>
+            </div>
+            <div class="cc-line"><span class="cc-com">// amir.config.js</span></div>
+            <div class="cc-line"><span class="cc-key">const</span> <span style="color:#e2e8f0">designer</span> = {</div>
+            <div class="cc-line">&nbsp;&nbsp;<span class="cc-key">name</span>: <span class="cc-str">"Амир Мауая"</span>,</div>
+            <div class="cc-line">&nbsp;&nbsp;<span class="cc-key">role</span>: <span class="cc-str">"Веб-дизайнер / Frontend"</span>,</div>
+            <div class="cc-line">&nbsp;&nbsp;<span class="cc-key">location</span>: <span class="cc-str">"Казахстан 🇰🇿"</span>,</div>
+            <div class="cc-line">&nbsp;&nbsp;<span class="cc-key">focus</span>: [<span class="cc-str">"лендинги"</span>, <span class="cc-str">"UI"</span>, <span class="cc-str">"адаптив"</span>],</div>
+            <div class="cc-line">&nbsp;&nbsp;<span class="cc-key">available</span>: <span class="cc-num">true</span>,</div>
+            <div class="cc-line">&nbsp;&nbsp;<span class="cc-key">replyTime</span>: <span class="cc-str">"до 24 часов"</span></div>
+            <div class="cc-line">};</div>
+            <div class="cc-line" style="margin-top:.45rem"><span class="cc-com">// Цель: сделать сайт, который выглядит дорого и работает понятно</span></div>
+          </div>
+
+          <div class="floating-badge fb1">
+            <div class="fb-icon">🎨</div>
+            <div class="fb-text"><div class="ft">Фокус</div><div class="fb">UI + чистая верстка</div></div>
+          </div>
+          <div class="floating-badge fb2">
+            <div class="fb-icon">⚡</div>
+            <div class="fb-text"><div class="ft">Готов к старту</div><div class="fb">Прямо сейчас</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee-wrap" aria-label="Ключевые направления">
+    <div class="marquee" id="mq"></div>
+  </div>
+
+  <section class="sec reveal" id="about">
+    <div class="sec-label">Обо мне</div>
+    <h2 class="sec-title">Кто такой <span>Амир?</span></h2>
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <div class="about-img" aria-hidden="true">👨‍💻</div>
+        <div class="ab-badge">
+          <div class="ab-icon">🚀</div>
+          <div><div class="ab-t">Статус</div><div class="ab-b">Активно развиваюсь</div></div>
+        </div>
+      </div>
+      <div class="about-r">
+        <p>Я начинающий веб-дизайнер из Казахстана. Сейчас активно развиваюсь в создании современных сайтов, которые выглядят аккуратно, быстро загружаются и оставляют хорошее первое впечатление.</p>
+        <p>Для меня хороший дизайн — это не только внешний вид, но и логика: понятная структура, читаемые блоки, ясные акценты и удобство для пользователя на любом устройстве.</p>
+        <p>Каждый новый проект — это возможность расти, поэтому я подхожу к работе внимательно: изучаю задачу, предлагаю решения и стараюсь сделать результат сильнее, чем ожидалось.</p>
+
+        <div class="fact-grid">
+          <div class="fact"><div class="fn">3+</div><div class="fl">Завершённых проекта</div></div>
+          <div class="fact"><div class="fn">2026</div><div class="fl">Год нового этапа</div></div>
+          <div class="fact"><div class="fn">100%</div><div class="fl">Удалённый формат</div></div>
+          <div class="fact"><div class="fn">∞</div><div class="fl">Желание расти</div></div>
+        </div>
+
+        <div style="margin-top:2.4rem;">
+          <div class="sec-label" style="margin-bottom:1rem;">Мой путь</div>
+          <div class="timeline">
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-date">2026 — сейчас</div>
+              <div class="tl-title">Начинающий веб-дизайнер</div>
+              <div class="tl-place">Фриланс · Казахстан</div>
+              <div class="tl-desc">Изучаю HTML, CSS, JavaScript и UI-дизайн. Собираю портфолио, улучшаю насмотренность и практикуюсь на реальных макетах.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-date">2026</div>
+              <div class="tl-title">Первые проекты</div>
+              <div class="tl-place">Личная практика</div>
+              <div class="tl-desc">Создал лендинг, погодное приложение и мини-блог — это помогло перейти от теории к полноценной разработке интерфейсов.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="services">
+    <div class="container reveal">
+      <div class="sec-label">Услуги</div>
+      <h2 class="sec-title">Что я <span>делаю</span></h2>
+      <p class="sec-sub">Подхожу к каждому проекту как к реальному продукту: важно не просто “нарисовать красиво”, а сделать страницу понятной, аккуратной и убедительной.</p>
+      <div class="srv-grid">
+        <article class="srv"><div class="srv-icon">🎨</div><div class="srv-title">UI/UX Дизайн</div><div class="srv-desc">Помогаю оформить структуру страницы, акценты и визуальный стиль так, чтобы сайт смотрелся современно и воспринимался легко.</div><span class="srv-tag">Figma · Wireframes</span></article>
+        <article class="srv"><div class="srv-icon">💻</div><div class="srv-title">Верстка сайтов</div><div class="srv-desc">Преобразую дизайн в чистую и понятную HTML/CSS-структуру. Работаю над тем, чтобы код был аккуратным и сайт выглядел стабильно.</div><span class="srv-tag">HTML5 · CSS3</span></article>
+        <article class="srv"><div class="srv-icon">📱</div><div class="srv-title">Адаптивный дизайн</div><div class="srv-desc">Настраиваю интерфейс под телефоны, планшеты и ноутбуки, чтобы сайт оставался удобным и визуально сильным на любом экране.</div><span class="srv-tag">Responsive</span></article>
+        <article class="srv"><div class="srv-icon">🚀</div><div class="srv-title">Лендинги</div><div class="srv-desc">Делаю посадочные страницы для личного бренда, услуг или малого бизнеса — с фокусом на доверие, понятную подачу и конверсию.</div><span class="srv-tag">От 3 дней</span></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec reveal" id="skills">
+    <div class="sec-label">Навыки</div>
+    <h2 class="sec-title">Где я <span>сейчас</span></h2>
+    <p class="sec-sub">Я в начале пути, но уже умею собирать цельные интерфейсы и каждый месяц прокачиваю дизайн-мышление и фронтенд-базу.</p>
+
+    <div class="skills-outer">
+      <div class="skill-card">
+        <div class="skill-item"><div class="sk-head"><span class="sk-name">HTML</span><span class="sk-pct">База уверенная</span></div><div class="bar-bg"><div class="bar-fill" style="width:74%"></div></div></div>
+        <div class="skill-item"><div class="sk-head"><span class="sk-name">CSS</span><span class="sk-pct">Активно расту</span></div><div class="bar-bg"><div class="bar-fill" style="width:68%"></div></div></div>
+        <div class="skill-item"><div class="sk-head"><span class="sk-name">JavaScript</span><span class="sk-pct">Начальный уровень</span></div><div class="bar-bg"><div class="bar-fill" style="width:42%"></div></div></div>
+        <div class="skill-item"><div class="sk-head"><span class="sk-name">UI Дизайн</span><span class="sk-pct">Сильная сторона</span></div><div class="bar-bg"><div class="bar-fill" style="width:79%"></div></div></div>
+        <div class="skill-item"><div class="sk-head"><span class="sk-name">Адаптивная верстка</span><span class="sk-pct">Хороший прогресс</span></div><div class="bar-bg"><div class="bar-fill" style="width:64%"></div></div></div>
+        <div class="skill-note">Ставлю себе цель не просто “учить технологии”, а сразу применять их в реальных мини-проектах — так рост получается быстрее и заметнее.</div>
+      </div>
+
+      <div class="tool-card">
+        <div class="sec-label" style="margin-bottom:1rem;">Инструменты</div>
+        <div class="tools-grid">
+          <div class="tool"><div class="ti">🌐</div><div class="tn">HTML5</div></div>
+          <div class="tool"><div class="ti">🎨</div><div class="tn">CSS3</div></div>
+          <div class="tool"><div class="ti">⚡</div><div class="tn">JavaScript</div></div>
+          <div class="tool"><div class="ti">📐</div><div class="tn">Figma</div></div>
+          <div class="tool"><div class="ti">💻</div><div class="tn">VS Code</div></div>
+          <div class="tool"><div class="ti">🐙</div><div class="tn">Git / GitHub</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="highlights">
+    <div class="container reveal">
+      <div class="sec-label">Почему я</div>
+      <h2 class="sec-title">Что делает этот сайт <span>сильнее</span></h2>
+      <p class="sec-sub">Я убрал каталог проектов и вместо него сделал блок, который лучше продаёт меня как специалиста: он показывает подход, выгоду и ощущение надёжности.</p>
+      <div class="hi-grid">
+        <article class="hi-card">
+          <div class="hi-icon">⚡</div>
+          <h3>Быстрый старт</h3>
+          <p>Если у тебя уже есть идея, я быстро помогу превратить её в аккуратную структуру сайта без лишней перегрузки и хаоса.</p>
+        </article>
+        <article class="hi-card">
+          <div class="hi-icon">🎯</div>
+          <h3>Дизайн с целью</h3>
+          <p>Я стараюсь делать не просто красиво, а так, чтобы сайт вызывал доверие, подчёркивал ценность услуги и подталкивал к заявке.</p>
+        </article>
+        <article class="hi-card">
+          <div class="hi-icon">📱</div>
+          <h3>Фокус на мобильных</h3>
+          <p>Большая часть трафика приходит со смартфонов, поэтому я усилил мобильную подачу: кнопки, отступы, меню и читаемость стали лучше.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec reveal" id="process">
+    <div class="sec-label">Процесс</div>
+    <h2 class="sec-title">Как проходит <span>работа</span></h2>
+    <p class="sec-sub">Такой блок делает сайт более убедительным: клиенту проще довериться, когда он видит понятный сценарий сотрудничества.</p>
+    <div class="process-grid">
+      <article class="process-card">
+        <div class="process-step">Шаг 01</div>
+        <h3>Короткий бриф</h3>
+        <p>Сначала выясняем задачу, стиль, аудиторию и желаемый результат, чтобы сайт сразу собирался вокруг понятной цели.</p>
+      </article>
+      <article class="process-card">
+        <div class="process-step">Шаг 02</div>
+        <h3>Структура и идея</h3>
+        <p>После этого я предлагаю логику блоков, подачу и визуальное направление, чтобы сайт выглядел собранно и уверенно.</p>
+      </article>
+      <article class="process-card">
+        <div class="process-step">Шаг 03</div>
+        <h3>Сборка интерфейса</h3>
+        <p>На этом этапе создаётся сам сайт: чистая верстка, акценты, адаптивность, удобство чтения и целостное впечатление.</p>
+      </article>
+      <article class="process-card">
+        <div class="process-step">Шаг 04</div>
+        <h3>Финальные правки</h3>
+        <p>Довожу детали до аккуратного результата, чтобы сайт выглядел дороже, понятнее и был готов к показу клиентам или аудитории.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec reveal" id="testimonials">
+    <div class="sec-label">Отзывы</div>
+    <h2 class="sec-title">Что говорят <span>люди</span></h2>
+    <p class="sec-sub">Несколько первых отзывов о моих работах и подходе к проектам.</p>
+    <div class="test-grid">
+      <article class="tcard"><div class="tstar">★★★★★</div><div class="tquote">«Амир создал нам лендинг с нуля. Получилось чисто, современно и без лишнего визуального шума — именно то, что было нужно.»</div><div class="tauth"><div class="tav">👩</div><div><div class="tname">Айгерим С.</div><div class="trole">Владелец малого бизнеса</div></div></div></article>
+      <article class="tcard"><div class="tstar">★★★★★</div><div class="tquote">«Видно, что человек старается не просто сделать красиво, а реально думает о структуре и удобстве. Приятно работать.»</div><div class="tauth"><div class="tav">👨</div><div><div class="tname">Даурен М.</div><div class="trole">IT-предприниматель</div></div></div></article>
+      <article class="tcard"><div class="tstar">★★★★☆</div><div class="tquote">«Аккуратный дизайн, быстрая реакция на правки и внимательность к мелочам. Для старта очень сильный результат.»</div><div class="tauth"><div class="tav">👩‍💼</div><div><div class="tname">Мадина К.</div><div class="trole">Менеджер проектов</div></div></div></article>
+    </div>
+  </section>
+
+  <section class="band" id="faq">
+    <div class="container reveal" style="max-width:760px;">
+      <div class="sec-label">FAQ</div>
+      <h2 class="sec-title">Частые <span>вопросы</span></h2>
+      <p class="sec-sub">Коротко о стоимости, сроках и формате работы.</p>
+      <div class="faq-list" id="faq-list"></div>
+    </div>
+  </section>
+
+  <section class="cta-wrap reveal" aria-labelledby="cta-title">
+    <h2 id="cta-title">Есть проект? Давай создадим<br>что-то сильное вместе.</h2>
+    <p>Открыт для фриланса, стажировок и сотрудничества. Если тебе нужен аккуратный современный сайт — напиши, и мы обсудим задачу.</p>
+    <div class="cta-btns">
+      <a href="#contact" class="btn-p">Написать сейчас →</a>
+      <a href="mailto:amirmauaia@gmail.com" class="btn-g">amirmauaia@gmail.com</a>
+    </div>
+  </section>
+
+  <section class="sec reveal" id="contact" style="padding-top:2rem;">
+    <div class="sec-label">Контакт</div>
+    <h2 class="sec-title">Давай <span>пообщаемся</span></h2>
+    <p class="sec-sub">Напиши мне удобным способом или отправь сообщение через форму — я подготовил её так, чтобы письмо сразу открывалось в почте.</p>
+
+    <div class="contact-grid">
+      <div class="contact-l">
+        <h3>Свяжись со мной</h3>
+        <p>Открыт для фриланс-проектов, стажировок и обратной связи. Особенно интересны лендинги, портфолио и интерфейсы для малого бизнеса.</p>
+        <div class="clinks">
+          <a href="mailto:amirmauaia@gmail.com" class="clink"><div class="cl-ic">📧</div><div><div class="cl-t">Email</div><div class="cl-b">amirmauaia@gmail.com</div></div></a>
+          <a href="https://t.me/kdevpython" target="_blank" rel="noopener noreferrer" class="clink"><div class="cl-ic">💬</div><div><div class="cl-t">Telegram</div><div class="cl-b">@kdevpython</div></div></a>
+          <a href="https://github.com/amir" target="_blank" rel="noopener noreferrer" class="clink"><div class="cl-ic">🐙</div><div><div class="cl-t">GitHub</div><div class="cl-b">github.com/amir</div></div></a>
+          <a href="https://linkedin.com/in/amir" target="_blank" rel="noopener noreferrer" class="clink"><div class="cl-ic">💼</div><div><div class="cl-t">LinkedIn</div><div class="cl-b">linkedin.com/in/amir</div></div></a>
+        </div>
+      </div>
+
+      <div class="form-wrap">
+        <div class="form-top">
+          <div>
+            <h3>Короткий бриф</h3>
+            <p>Форма без backend — после отправки откроется твой почтовый клиент с готовым письмом.</p>
+          </div>
+        </div>
+
+        <form id="contactForm">
+          <div class="frow">
+            <div class="fg"><label for="name">Имя</label><input id="name" name="name" type="text" placeholder="Твоё имя" required></div>
+            <div class="fg"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="email@example.com" required></div>
+          </div>
+          <div class="fg"><label for="budget">Бюджет</label><select id="budget" name="budget"><option>До $100</option><option>$100–$300</option><option>$300–$500</option><option>Обсудим</option></select></div>
+          <div class="fg"><label for="projectType">Тип проекта</label><select id="projectType" name="projectType"><option>Лендинг</option><option>Портфолио</option><option>Интернет-магазин</option><option>Другое</option></select></div>
+          <div class="fg"><label for="message">Сообщение</label><textarea id="message" name="message" placeholder="Расскажи о проекте..." required></textarea></div>
+          <button class="f-submit" type="submit">Подготовить письмо →</button>
+          <div class="form-status" id="formStatus" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-logo">amir<span>.</span></div>
+  <div class="footer-copy">© <span id="year"></span> Амир Мауая · Казахстан</div>
+  <div class="footer-links">
+    <a href="#hero">Наверх</a>
+    <a href="#process">Процесс</a>
+    <a href="mailto:amirmauaia@gmail.com">Email</a>
+  </div>
+</footer>
+
+<div class="mobile-cta">
+  <a href="#contact" class="btn-p">Обсудить проект →</a>
+</div>
+
+<button id="btt" aria-label="Наверх" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<div class="modal-bg" id="modal" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="mt">
+    <div class="modal-header">
+      <h2 id="mt"></h2>
+      <button class="close-btn" onclick="closeM()" aria-label="Закрыть окно">✕</button>
+    </div>
+    <div id="mb"></div>
+  </div>
+</div>
+
+<script>
+// PRELOADER
+const pbar = document.getElementById('pbar');
+let preloaderWidth = 0;
+const preloaderInterval = setInterval(() => {
+  preloaderWidth += Math.random() * 25;
+  if (preloaderWidth >= 100) {
+    preloaderWidth = 100;
+    clearInterval(preloaderInterval);
+    setTimeout(() => document.getElementById('preloader').classList.add('hide'), 350);
+  }
+  pbar.style.width = preloaderWidth + '%';
+}, 180);
+
+// CURSOR
+const cur = document.getElementById('cur');
+const ring = document.getElementById('cur-ring');
+if (cur && ring) {
+  document.addEventListener('mousemove', e => {
+    cur.style.left = e.clientX + 'px';
+    cur.style.top = e.clientY + 'px';
+    ring.style.left = e.clientX + 'px';
+    ring.style.top = e.clientY + 'px';
+  });
+
+  document.querySelectorAll('a, button, .proj-card, .faq-q').forEach(el => {
+    el.addEventListener('mouseenter', () => ring.style.transform = 'translate(-50%,-50%) scale(1.35)');
+    el.addEventListener('mouseleave', () => ring.style.transform = 'translate(-50%,-50%) scale(1)');
+  });
+}
+
+// NAV / MOBILE MENU
+const nav = document.getElementById('nav');
+const navToggle = document.getElementById('navToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileLinks = mobileMenu.querySelectorAll('a');
+
+function closeMobileMenu() {
+  navToggle.classList.remove('open');
+  navToggle.setAttribute('aria-expanded', 'false');
+  mobileMenu.classList.remove('open');
+  document.body.classList.remove('menu-open');
+}
+function openMobileMenu() {
+  navToggle.classList.add('open');
+  navToggle.setAttribute('aria-expanded', 'true');
+  mobileMenu.classList.add('open');
+  document.body.classList.add('menu-open');
+}
+navToggle.addEventListener('click', () => {
+  mobileMenu.classList.contains('open') ? closeMobileMenu() : openMobileMenu();
+});
+mobileLinks.forEach(link => link.addEventListener('click', closeMobileMenu));
+
+// SCROLL FX
+const progress = document.getElementById('progress');
+const btt = document.getElementById('btt');
+window.addEventListener('scroll', () => {
+  const s = window.scrollY;
+  const h = Math.max(document.body.scrollHeight - window.innerHeight, 1);
+  progress.style.width = (s / h * 100) + '%';
+  nav.classList.toggle('scrolled', s > 30);
+  btt.classList.toggle('show', s > 450);
+});
+
+// SECTION HIGHLIGHT
+const navAnchors = [...document.querySelectorAll('.nav-links a')];
+const sectionIds = navAnchors.map(a => a.getAttribute('href')).filter(Boolean);
+const sectionEls = sectionIds.map(id => document.querySelector(id)).filter(Boolean);
+
+const sectionObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const id = '#' + entry.target.id;
+    navAnchors.forEach(link => link.classList.toggle('active', link.getAttribute('href') === id));
+  });
+}, { threshold: .45 });
+
+sectionEls.forEach(section => sectionObserver.observe(section));
+
+// REVEAL
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// TYPEWRITER
+const words = ['Веб-дизайнер.', 'Frontend-разработчик.', 'Создаю сайты, которые запоминаются.'];
+let wi = 0, ci = 0, del = false;
+const tel = document.getElementById('typed');
+
+function type() {
+  const word = words[wi];
+  if (!del) {
+    tel.textContent = word.slice(0, ++ci);
+    if (ci === word.length) {
+      del = true;
+      setTimeout(type, 1600);
+      return;
+    }
+  } else {
+    tel.textContent = word.slice(0, --ci);
+    if (ci === 0) {
+      del = false;
+      wi = (wi + 1) % words.length;
+      setTimeout(type, 320);
+      return;
+    }
+  }
+  setTimeout(type, del ? 48 : 75);
+}
+setTimeout(type, 900);
+
+// COUNTERS
+document.querySelectorAll('[data-count]').forEach(el => {
+  const target = +el.dataset.count;
+  let current = 0;
+  const duration = 1200;
+  const stepTime = Math.max(Math.floor(duration / target), 24);
+
+  function step() {
+    if (current < target) {
+      current += 1;
+      el.textContent = current;
+      setTimeout(step, stepTime);
+    }
+  }
+  setTimeout(step, 1200);
+});
+
+// MARQUEE
+const items = ['HTML & CSS', 'Веб-дизайн', 'UI/UX', 'Лендинги', 'Мобильная версия', 'Адаптивная верстка', 'Figma', 'Казахстан 🇰🇿', 'Чистый код', 'Открыт к работе'];
+const mq = document.getElementById('mq');
+let marqueeHTML = '';
+for (let i = 0; i < 2; i++) {
+  items.forEach(text => {
+    marqueeHTML += `<span class="mi"><span class="md"></span>${text}</span>`;
+  });
+}
+mq.innerHTML = marqueeHTML;
+
+// FAQ
+const faqs = [
+  { q:'Сколько стоит создание сайта?', a:'Стоимость зависит от сложности и объёма. Лендинг — от $50, портфолио — от $80, интернет-магазин-концепт — от $150. Точную цену лучше обсуждать после краткого брифа.' },
+  { q:'Сколько времени займёт проект?', a:'Простой лендинг обычно занимает 3–5 дней. Более объёмный проект — от 1 недели. Срок зависит от количества блоков, правок и готовности материалов.' },
+  { q:'Ты начинающий — это риск?', a:'Я честно говорю о своём уровне, но компенсирую это вовлечённостью, вниманием к деталям и желанием сделать результат максимально сильным. Для клиента это часто означает больше внимания к проекту.' },
+  { q:'Как проходит работа?', a:'Сначала обсуждаем задачу и примеры, затем я собираю структуру и дизайн, после чего показываю результат и вношу согласованные правки.' },
+  { q:'Будут ли правки после сдачи?', a:'Да. Небольшие правки после сдачи входят в работу. Если изменения сильно меняют структуру проекта, обсуждаем их отдельно.' }
+];
+const faqList = document.getElementById('faq-list');
+
+faqs.forEach((faq, index) => {
+  const item = document.createElement('div');
+  item.className = 'faq-item';
+  item.innerHTML = `
+    <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-${index}" id="faq-q-${index}">
+      <span class="faq-q-text">${faq.q}</span>
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a" id="faq-a-${index}" role="region" aria-labelledby="faq-q-${index}">
+      <div class="faq-a-inner">${faq.a}</div>
+    </div>
+  `;
+  faqList.appendChild(item);
+});
+
+faqList.addEventListener('click', e => {
+  const btn = e.target.closest('.faq-q');
+  if (!btn) return;
+  const currentItem = btn.closest('.faq-item');
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const isCurrent = item === currentItem;
+    const shouldOpen = isCurrent && !item.classList.contains('open');
+    item.classList.toggle('open', shouldOpen);
+    item.querySelector('.faq-q').setAttribute('aria-expanded', String(shouldOpen));
+    item.querySelector('.faq-a').style.maxHeight = shouldOpen ? item.querySelector('.faq-a-inner').scrollHeight + 28 + 'px' : '0px';
+  });
+});
+
+// MODALS
+const modal = document.getElementById('modal');
+const modalTitle = document.getElementById('mt');
+const modalBody = document.getElementById('mb');
+
+function openM() {
+  modalTitle.textContent = '';
+  modalBody.innerHTML = '';
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+function closeM() {
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && modal.classList.contains('open')) closeM();
+  if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMobileMenu();
+});
+
+// CONTACT FORM
+const contactForm = document.getElementById('contactForm');
+const formStatus = document.getElementById('formStatus');
+contactForm.addEventListener('submit', e => {
+  e.preventDefault();
+
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const budget = document.getElementById('budget').value;
+  const projectType = document.getElementById('projectType').value;
+  const message = document.getElementById('message').value.trim();
+
+  if (!name || !email || !message) {
+    formStatus.textContent = 'Заполни имя, email и сообщение.';
+    formStatus.className = 'form-status err';
+    return;
+  }
+
+  const subject = encodeURIComponent(`Новый запрос с портфолио: ${projectType}`);
+  const body = encodeURIComponent(
+`Имя: ${name}
+Email: ${email}
+Бюджет: ${budget}
+Тип проекта: ${projectType}
+
+Сообщение:
+${message}`
+  );
+
+  formStatus.textContent = 'Открываю почтовое приложение с подготовленным письмом...';
+  formStatus.className = 'form-status ok';
+  window.location.href = `mailto:amirmauaia@gmail.com?subject=${subject}&body=${body}`;
+});
+
+// YEAR
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
